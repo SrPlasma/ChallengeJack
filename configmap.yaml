@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: meu-site-config
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Meu Site</title>
+      <style>
+        body {
+          background-color: black;
+          color: yellow;
+        }
+        h1, h2 {
+          color: yellow;
+        }
+        a {
+          color: white;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>Bem-vindo ao desafio Jack Experts!</h1>
+      <h2 style="color:red;">Instruções do Desafio:</h2>
+      <ul>
+        <li>Criação da Aplicação: Desenvolver uma aplicação simples com uma página HTML customizável definida via ConfigMap.</li>
+        <li>Uso do Docker: Criar um Dockerfile e publicar a imagem no Docker Hub.</li>
+        <li>Configuração do Kubernetes: Usar Helm para definir todos os objetos da aplicação.</li>
+        <li>Domínio para Acesso: Garantir que a aplicação seja acessível através de um domínio configurado.</li>
+      </ul>
+      <h2>Links Importantes:</h2>
+      <ul>
+        <li><a href="https://hub.docker.com/repository/docker/igorguimaraes/meu-site/general">Imagem no DockerHub</a></li>
+        <li><a href="https://github.com/SrPlasma/ChallengeJack.git">Repositório no GitHub</a></li>
+      </ul>
+      <p>Sugestões e melhorias são muito bem-vindas.</p>
+    </body>
+    </html>

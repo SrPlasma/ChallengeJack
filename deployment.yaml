@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meu-site-deployment
+  labels:
+    desafio: jackexperts
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: meu-site
+  template:
+    metadata:
+      labels:
+        app: meu-site
+    spec:
+      containers:
+      - name: meu-site
+        image: igorguimaraes/meu-site:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: html-volume
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: html-volume
+        configMap:
+          name: meu-site-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: meu-site-service
+  labels:
+    desafio: jackexperts
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: meu-site
